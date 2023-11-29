@@ -28,8 +28,11 @@ return {
                 component_separators = {left = '', right = ''},
             },
             sections = {
-                lualine_b = {window_nr, 'branch'},
-                lualine_c = {custom_filename},
+                lualine_b = {window_nr},
+                lualine_c = {
+                    {'branch', component_separators = {left = '', right = ''}},
+                    custom_filename,
+                },
             },
             inactive_sections = {
                 lualine_b = {window_nr},
