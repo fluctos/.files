@@ -19,7 +19,7 @@ require('lazy').setup('lazy.plugins', {
         colorscheme = { 'nord', },
     },
     ui = {
-        border = 'rounded',
+        border = 'none',
     },
 })
 
