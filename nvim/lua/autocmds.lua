@@ -14,8 +14,9 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     pattern = {
         '*.c', '*.cpp', '*.h', '*.hpp',
         'CMake*',
+        '*.lua',
         'Makefile',
         '*.rs',
     },
-    command = '%s/\\s\\+$//',
+    command = '%s/\\s\\+$//e',
 })
