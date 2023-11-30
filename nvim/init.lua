@@ -1,6 +1,3 @@
--- TODO:
--- [ ] remove trailing whitespace from lines when saving
-
 vim.g.loaded_gzip = 1
 vim.g.loaded_man = 1
 vim.g.loaded_tarPlugin = 1
