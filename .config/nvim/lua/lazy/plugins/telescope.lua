@@ -6,7 +6,7 @@ return {
         {'debugloop/telescope-undo.nvim'},
     },
     config = function()
-        telescope = require('telescope')
+        local telescope = require('telescope')
 
         telescope.setup({
             defaults = {
@@ -37,35 +37,43 @@ return {
                     },
                 },
             },
+            pickers = {
+                find_files = {
+                    no_hidden = false,
+                    no_ignore = true,
+                },
+            },
         })
 
         telescope.load_extension('fzf')
         telescope.load_extension('undo')
 
-        vim.keymap.set('n', '\\\\', require('telescope.builtin').resume)
+        local builtin = require('telescope.builtin')
 
-        vim.keymap.set('n', '\\b', require('telescope.builtin').buffers)
-        vim.keymap.set('n', '\\d', require('telescope.builtin').diagnostics)
-        vim.keymap.set('n', '\\f', require('telescope.builtin').find_files)
-        vim.keymap.set('n', '\\g', require('telescope.builtin').git_files)
-        vim.keymap.set('n', '\\h', require('telescope.builtin').help_tags)
-        vim.keymap.set('n', '\\o', require('telescope.builtin').oldfiles)
-        vim.keymap.set('n', '\\r', require('telescope.builtin').registers)
-        vim.keymap.set('n', '\\s', require('telescope.builtin').live_grep)
-        vim.keymap.set('n', '\\t', require('telescope.builtin').builtin)
-        vim.keymap.set('n', '\\w', require('telescope.builtin').grep_string)
-        
+        vim.keymap.set('n', '\\\\', builtin.resume)
+
+        vim.keymap.set('n', '\\b', builtin.buffers)
+        vim.keymap.set('n', '\\d', builtin.diagnostics)
+        vim.keymap.set('n', '\\f', builtin.find_files)
+        vim.keymap.set('n', '\\g', builtin.git_files)
+        vim.keymap.set('n', '\\h', builtin.help_tags)
+        vim.keymap.set('n', '\\o', builtin.oldfiles)
+        vim.keymap.set('n', '\\r', builtin.registers)
+        vim.keymap.set('n', '\\s', builtin.live_grep)
+        vim.keymap.set('n', '\\t', builtin.builtin)
+        vim.keymap.set('n', '\\w', builtin.grep_string)
+
         vim.keymap.set('n', '<Leader><BS>', require('telescope').extensions.undo.undo)
 
-        browse_files = function(path, title)
-            require('telescope.builtin').find_files({
+        local browse_files = function(path, title)
+            builtin.find_files({
                 shorten_path = true,
                 cwd = path,
                 prompt_title = title
             })
         end
 
-        vim.keymap.set('n', '<Leader>rc', function() browse_files('~/.config/nvim', 'NVIM Config') end, opts)
-        vim.keymap.set('n', '<Leader>rs', function() browse_files('~/.local/share/nvim', 'NVIM Data') end, opts)
+        vim.keymap.set('n', '<Leader>rc', function() browse_files('~/.config/nvim', 'NVIM Config') end)
+        vim.keymap.set('n', '<Leader>rs', function() browse_files('~/.local/share/nvim', 'NVIM Data') end)
     end,
 }
