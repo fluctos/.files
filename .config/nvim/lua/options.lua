@@ -13,9 +13,13 @@ vim.o.cursorlineopt = 'both'
 vim.o.hlsearch = true
 
 vim.o.updatetime = 250
-vim.o.timeoutlen = 300
+vim.o.timeoutlen = 333
 
 vim.o.mouse = 'a'
+
 vim.o.clipboard = 'unnamedplus'
 vim.o.wrapscan = false
+
+vim.o.splitright = true
+vim.o.splitbelow = true
 
