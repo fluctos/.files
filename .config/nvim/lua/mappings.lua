@@ -9,3 +9,4 @@ vim.keymap.set('v', '>', '>gv')
 vim.keymap.set('n', 'n', 'nzz')
 vim.keymap.set('n', 'N', 'Nzz')
 
+vim.keymap.set('n', '<Leader>ww', '<cmd>write<Cr>')
