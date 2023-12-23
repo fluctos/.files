@@ -8,6 +8,14 @@ return {
         },
 
         config = function()
+
+            vim.diagnostic.config({
+                underline = true,
+                update_in_insert = false,
+                virtual_text = false,
+                severity_sort = true,
+            })
+
             local servers = {
                 clangd = {},
 
@@ -45,6 +53,7 @@ return {
                 vim.keymap.set('n', 'K', vim.lsp.buf.hover)
                 vim.keymap.set('n', '<Leader>cr', vim.lsp.buf.rename)
                 vim.keymap.set('n', '<Leader>ca', vim.lsp.buf.code_action)
+                vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float)
             end
 
             require('mason').setup()
