@@ -10,3 +10,7 @@ vim.keymap.set('n', 'n', 'nzz')
 vim.keymap.set('n', 'N', 'Nzz')
 
 vim.keymap.set('n', '<Leader>ww', '<cmd>write<Cr>')
+
+vim.keymap.set('n', '[t', '<cmd>tabprev<Cr>')
+vim.keymap.set('n', ']t', '<cmd>tabnext<Cr>')
+
