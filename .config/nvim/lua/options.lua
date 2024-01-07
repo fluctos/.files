@@ -23,3 +23,4 @@ vim.o.wrapscan = false
 vim.o.splitright = true
 vim.o.splitbelow = true
 
+vim.o.wrap = false
