@@ -1,4 +1,4 @@
-local function window_nr() 
+local function window_nr()
     return '[' .. vim.api.nvim_win_get_number(0) .. ']'
 end
 
@@ -24,13 +24,17 @@ return {
                 -- section_separators = {left = '◤', right = '◢'},
                 -- section_separators = {left = '◣', right = '◥'},
 
-                -- component_separators = {left = '╲', right = '╲'},
                 component_separators = {left = '', right = ''},
+                -- component_separators = {left = '╲', right = '╲'},
             },
             sections = {
                 lualine_b = {window_nr},
                 lualine_c = {
-                    {'branch', component_separators = {left = '', right = ''}},
+                    {
+                        'branch',
+                        component_separators = {left = '', right = ''},
+                        padding = {left = 1, right = 0}
+                    },
                     custom_filename,
                 },
             },
@@ -39,7 +43,6 @@ return {
                 lualine_c = {custom_filename},
                 lualine_x = {},
             },
-            inactive_sections
         })
     end,
 }

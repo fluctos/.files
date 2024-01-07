@@ -61,9 +61,8 @@ return {
         vim.keymap.set('n', '\\r', builtin.registers)
         vim.keymap.set('n', '\\s', builtin.live_grep)
         vim.keymap.set('n', '\\t', builtin.builtin)
+        vim.keymap.set('n', '\\u', require('telescope').extensions.undo.undo)
         vim.keymap.set('n', '\\w', builtin.grep_string)
-
-        vim.keymap.set('n', '<Leader><BS>', require('telescope').extensions.undo.undo)
 
         local browse_files = function(path, title)
             builtin.find_files({
