@@ -54,6 +54,8 @@ return {
                 vim.keymap.set('n', '<Leader>cr', vim.lsp.buf.rename)
                 vim.keymap.set('n', '<Leader>ca', vim.lsp.buf.code_action)
                 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float)
+                vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+                vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
             end
 
             require('mason').setup()
