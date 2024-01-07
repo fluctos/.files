@@ -42,6 +42,13 @@ return {
                     no_hidden = false,
                     no_ignore = true,
                 },
+                lsp_references = {
+                    show_line = false,
+                },
+                lsp_definitions = {
+                    jump_type = 'vsplit',
+                    show_line = false,
+                },
             },
         })
 
