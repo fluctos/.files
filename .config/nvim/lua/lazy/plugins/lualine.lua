@@ -24,17 +24,13 @@ return {
                 -- section_separators = {left = '◤', right = '◢'},
                 -- section_separators = {left = '◣', right = '◥'},
 
-                component_separators = {left = '', right = ''},
                 -- component_separators = {left = '╲', right = '╲'},
+                component_separators = {left = '', right = ''},
             },
             sections = {
                 lualine_b = {window_nr},
                 lualine_c = {
-                    {
-                        'branch',
-                        component_separators = {left = '', right = ''},
-                        padding = {left = 1, right = 0}
-                    },
+                    {'branch', component_separators = {left = '', right = ''}},
                     custom_filename,
                 },
             },
