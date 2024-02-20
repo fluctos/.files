@@ -21,5 +21,9 @@ require('lazy').setup('lazy.plugins', {
     ui = {
         border = 'none',
     },
+    change_detection = {
+        enabled = false,
+        notify = false,
+    },
 })
 

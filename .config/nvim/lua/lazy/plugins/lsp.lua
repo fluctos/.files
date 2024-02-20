@@ -10,7 +10,9 @@ return {
         config = function()
 
             vim.diagnostic.config({
-                underline = true,
+                underline = {
+                    severity = vim.diagnostic.severity.ERROR,
+                },
                 update_in_insert = false,
                 virtual_text = false,
                 severity_sort = true,
@@ -42,7 +44,7 @@ return {
                 }
             }
 
-            local on_attach = function()
+            local on_attach = function(event)
                 vim.o.signcolumn = 'yes:1'
                 local telescope = require('telescope.builtin')
                 vim.keymap.set('n', 'gd', telescope.lsp_definitions)
@@ -56,6 +58,12 @@ return {
                 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float)
                 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
                 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+
+                local id = vim.tbl_get(event, 'data', 'client_id')
+                local client = id and vim.lsp.get_client_by_id(id)
+                if client and client.supports_method('textDocument/inlayHints') then
+                    vim.lsp.inlay_hint.enable(event.buf, true)
+                end
             end
 
             require('mason').setup()
