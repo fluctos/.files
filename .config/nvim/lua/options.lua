@@ -18,6 +18,19 @@ vim.o.timeoutlen = 333
 vim.o.mouse = 'a'
 
 vim.o.clipboard = 'unnamedplus'
+vim.g.clipboard = {
+    name = 'xsel',
+    copy = {
+        ['+'] = {'xsel', '--nodetach', '-i', '-b'},
+        ['*'] = {'xsel', '--nodetach', '-i', '-p'},
+    },
+    paste = {
+        ['+'] = {'xsel',  '-o', '-b'},
+        ['*'] = {'xsel',  '-o', '-b'},
+    },
+    cache_enabled = 1,
+}
+
 vim.o.wrapscan = false
 
 vim.o.splitright = true
