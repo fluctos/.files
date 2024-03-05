@@ -22,7 +22,13 @@ return {
                     width = 0.9,
                     preview_cutoff = 0,
                     preview_height = 0.5,
-                }
+                },
+                mappings = {
+                    i = {
+                        ['<C-J>'] = require('telescope.actions').move_selection_next,
+                        ['<C-K>'] = require('telescope.actions').move_selection_previous,
+                    },
+                },
             },
             extensions = {
                 undo = {

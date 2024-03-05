@@ -21,6 +21,8 @@ return {
             local servers = {
                 clangd = {},
 
+                cmake = {},
+
                 rust_analyzer = {
                     cargo = {
                       allFeatures = true,
@@ -42,9 +44,10 @@ return {
                         telementry = {enable = false},
                     },
                 }
+
             }
 
-            local on_attach = function(event)
+            local on_attach = function()
                 vim.o.signcolumn = 'yes:1'
                 local telescope = require('telescope.builtin')
                 vim.keymap.set('n', 'gd', telescope.lsp_definitions)
@@ -75,6 +78,9 @@ return {
                     })
                 end,
             })
+
+            vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {border = 'rounded'})
+
         end,
     },
 }

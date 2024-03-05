@@ -38,3 +38,5 @@ vim.o.splitbelow = true
 
 vim.o.wrap = false
 vim.o.autoread = false
+
+vim.o.diffopt = 'algorithm:histogram'
