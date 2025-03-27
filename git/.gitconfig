@@ -1,0 +1,10 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	email = 152332422+fluctos@users.noreply.github.com
+	name = Fluctos
+[alias]
+	adog = log --all --decorate --oneline --graph

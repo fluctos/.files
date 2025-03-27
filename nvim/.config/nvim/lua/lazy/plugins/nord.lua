@@ -11,7 +11,7 @@ return {
         vim.g.nord_cursorline_transparent = false
         vim.g.nord_italic = false
         vim.g.nord_uniform_diff_background = false
-        require('nord').set()
+        -- require('nord').set()
     end,
 }
 

@@ -1,8 +1,0 @@
-function cd() {
-    new_dir="$*";
-    if [ $# -eq 0 ]; then
-        new_dir=${HOME};
-    fi;
-    builtin cd "${new_dir}" && ls -hAlF
-}
-
